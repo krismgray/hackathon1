@@ -1,2 +1,12 @@
-<h1>Bios#show</h1>
-<p>Find me in app/views/bios/show.html.erb</p>
+<h1>Profile</h1>
+<% @bios.each do |post| %>
+  <div>
+    <%= bio.user.avatar %>
+  </div>
+  <div>
+    <%= bio.user.handle %>
+    <%= bio.user.description %>
+  </div>
+<% end %>
+
+

@@ -3,8 +3,14 @@
   <h1 class="ui header"><%= (@post && @post.id) ? 'Edit Post' : "" %></h1>
     <%= form_for @post do |f| %>
       <div class="ui form">
-        <%= f.text_field :content, required: true, autofocus: true, placeholder: "Add New Post" %>
-        <%= f.submit nil, class: "ui button primary" %>
+        <div class="fields">
+          <div class="fourteen wide field">
+            <%= f.text_field :content, required: true, autofocus: true, placeholder: "Add New Post"%>
+          </div>
+          <div class="field">
+            <%= f.submit nil, class: "ui button primary right" %>
+          </div>
+        </div>
     </div>
   <% end %>
 </div>

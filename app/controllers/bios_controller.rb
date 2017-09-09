@@ -1,6 +1,10 @@
 class BiosController < ApplicationController
-  before_action :set_bio
+  before_action :set_bio, only: [:edit, :show, :update]
   # before_action :set_user
+
+  def index
+
+  end
 
   def show
    

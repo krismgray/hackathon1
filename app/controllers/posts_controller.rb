@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      redirect_to user_post_path(current_user, @post)
+      redirect_to posts_path
     else
       render partial: 'form'
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to [current_user, @post]
+      redirect_to posts_path
     else
       render partial: 'form'
     end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to user_posts_path(current_user)
+    redirect_to posts_path
   end
 
   private
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:name, :body)
+      params.require(:post).permit(:content, :body)
     end
 
 end

@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag "application" %>
+<div class="ui container">
+  <h1 class="ui header"><%= @post.id ? 'Edit Post' : 'Create Post' %></h1>
+    <%= form_for @post  do |f| %>
+      <div class="ui form" id="trip_form">
+        <%= f.label :content %>
+        <%= f.text_area :content, required: true, autofocus: true %>
+        <%= f.submit nil, class: "ui button primary" %>
+    </div>
+  <% end %>
+</div>

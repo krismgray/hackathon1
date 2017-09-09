@@ -1,5 +1,6 @@
 class BiosController < ApplicationController
-  before_action :set_bio, only: [:edit, :show, :update]
+
+  before_action :set_bio, only: [:show, :edit, :update]
   # before_action :set_user
 
   def index
@@ -29,7 +30,6 @@ class BiosController < ApplicationController
 
   def create
     @bio = current_user.create_bio(bio_params)
-
     if @bio.save
       redirect_to posts_path
     else
@@ -52,6 +52,5 @@ class BiosController < ApplicationController
 
   def bio_params
     params.require(:bio).permit(:description, :display_name, :avatar)
-
   end
 end

@@ -1,17 +1,20 @@
+require 'pry'
+
 class CommentsController < ApplicationController
   before_action :set_post
 
   def new
     @comment = Comment.new
+    render partial: 'form'
   end
 
   def create
     @comment = @post.comments.new(comment_params)
-
+    @comment.user_id = current_user.id
     if @comment.save
-      redirect_to current_user_post_path(@post.current_user, @post)
+      redirect_to posts_path
     else
-      render :new
+      render partial: 'form'
     end
   end
 
@@ -22,7 +25,7 @@ private
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :author)
+    params.require(:comment).permit(:message, :user_id)
   end
 
 end

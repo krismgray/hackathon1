@@ -1,5 +1,5 @@
 class BiosController < ApplicationController
-  before_action :set_user
+  # before_action :set_user
 
   def show
   end
@@ -10,17 +10,17 @@ class BiosController < ApplicationController
 
   def update
     if @bio.update(bio_params)
-      redirect_to bio_path
+      redirect_to bio_path(@bio)
     else
-      render partial 'form'
+      render partial: 'form'
     end
   end
 
   def create
-    @bio = current_user.bios.new(bio_params)
+    @bio = current_user.create_bio(bio_params)
 
     if @bio.save
-      redirect_to bios_path
+      redirect_to posts_path
     else
       render partial: 'form'
     end
@@ -31,16 +31,16 @@ class BiosController < ApplicationController
 
   private
 
-  def set_user
-    current_user = User.find(params[:user_id])
-  end 
+  # def set_user
+  #   current_user = User.find(params[:user_id])
+  # end 
 
   def set_bio
     @bio = Bio.find(params[:id])
   end
 
   def bio_params
-    params.require(:bio).permit(:user_id)
+    params.require(:bio).permit(:user_id:)
 
   end
 end

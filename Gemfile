@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise', '>= 4.3.0'
 gem 'semantic-ui-sass', '~> 2.2.11'
 gem 'jquery-rails', '~> 4.3.1'
-
+gem "paperclip", "~> 5.0.0"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'

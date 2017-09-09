@@ -14,3 +14,16 @@
 //= require jquery
 //= require semantic-ui
 //= require_tree .
+
+
+function showComments(post){
+  $("#post_comments_"+post).show()
+  $("#comment_button_"+post).remove()
+  $("#button_container_"+post).append("<button id='hide_comment_button_"+post+"' class='ui primary basic button' onClick='hideComments("+post+")'>Hide Comments</button>")
+}
+
+function hideComments(post){
+  $("#post_comments_"+post).hide()
+  $("#hide_comment_button_"+post).remove()
+  $("#button_container_"+post).append("<button id='comment_button_"+post+"' class='ui primary basic button' onClick='showComments("+post+")'>Show Comments</button>")
+}

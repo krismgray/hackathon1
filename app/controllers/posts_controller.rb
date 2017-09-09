@@ -3,11 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-<<<<<<< HEAD
-    @post = current_user.posts.new
-=======
     @post = Post.new
->>>>>>> working add post in timeline
     @posts = Post.all
   end
 

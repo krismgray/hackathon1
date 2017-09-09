@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "application" %>
+
+<div class="comment">
+  <div>
+    <%= image_tag comment.user.bio.avatar.url, class: "ui avatar image", style: "height: 50px; width:50px;" %>
+  </div>
+  <div class="content">
+    <%= link_to comment.user.handle, bio_path(comment.user.bio), class: "author" %>
+    <div class="text">
+      <%= comment.message %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 <h1>Timeline</h1>
 <% @posts.each do |post| %>
   <div class="post">
+    Author: <%= post.user.handle %>
     Content: <%= post.content %>
     <% if post.user == current_user %>
       <%= link_to "edit", edit_post_path(post) %>

@@ -1,11 +1,15 @@
 <%= stylesheet_link_tag "application" %>
 <div class="ui container">
-  <h1 class="ui header"><%= @comment.id ? 'Edit Comment' : 'Create Comment' %></h1>
-   <%= form_for [@post, @comment] do |f| %>
-      <div class="ui form">
-        <%= f.label :message %>
-        <%= f.text_area :message, required: true, autofocus: true %>
-        <%= f.submit nil, class: "ui button primary" %>
+  <div class="ui centered grid">
+    <div class="six wide column">
+      <h1 class="ui header"><%= @comment.id ? 'Edit Comment' : 'Create Comment' %></h1>
+      <%= form_for [@post, @comment] do |f| %>
+          <div class="ui form">
+            <%= f.label :message %>
+            <%= f.text_field :message, required: true, autofocus: true %>
+            <%= f.submit nil, class: "ui button primary" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

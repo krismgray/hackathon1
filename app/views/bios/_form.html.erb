@@ -1,20 +1,24 @@
 <%= stylesheet_link_tag "application" %>
 <div class="ui container">
-  <h1 class="ui header"><%= @bio.id ? 'Edit Bio' : 'Create Bio' %>
-    <%= form_for @bio do |f| %>
-      <div class="ui form">
-        <%= f.label :display_name %>
-        <%= f.text_field :display_name %>
-        <br />
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-        <br />
-         <%= f.label :avatar %>
-         <p>Please upload an image approximately 600x600px</p>
-        <%= f.file_field :avatar %>
-        
-               <br />
-        <%= f.submit nil, class: "ui button primary" %>
+  <div class="ui centered grid">
+    <div class="six wide column">
+      <h1 class="ui header"><%= @bio.id ? 'Edit Bio' : 'Create Bio' %>
+      <%= form_for @bio do |f| %>
+        <div class="ui form">
+          <%= f.label :display_name %>
+          <%= f.text_field :display_name %>
+          <br />
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+          <br />
+          <%= f.label :avatar %>
+          <p>Please upload an image approximately 600x600px</p>
+          <%= f.file_field :avatar %>
+          
+                <br />
+          <%= f.submit nil, class: "ui button primary" %>
+        </div>
+      <% end %>
       </div>
-    <% end %>
+    </div>
   </div>

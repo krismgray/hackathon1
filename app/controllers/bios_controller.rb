@@ -6,6 +6,11 @@ class BiosController < ApplicationController
    
   end
 
+  def new
+    @bio = Bio.new
+    render partial: 'form'
+  end
+
   def edit
     @bio = current_user.bio
   end
@@ -42,7 +47,11 @@ class BiosController < ApplicationController
   end
 
   def bio_params
+<<<<<<< HEAD
     params.require(:bio).permit(:user_id)
+=======
+    params.require(:bio).permit(:description, :display_name, :avatar)
+>>>>>>> updated partials
 
   end
 end

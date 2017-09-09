@@ -1,14 +1,24 @@
-
-<h1><%= @bio.user.handle %>'s Profile</h1>
-<hr />
-<div class="image">
-  <%= image_tag @bio.avatar.url, class: "ui avatar image" %>
-</div>
-<div class="description">
-  <h4><%= @bio.description %></h4>
-</div>
-<div class="ui unstackable items">
-  <% @bio.user.posts.each do |post| %>
-     <%= render partial: "post", locals: { post: post } %>
-  <% end %>
-</div>
+<div class="ui container">
+  <div class="ui centered grid">
+    <div class="eight wide column">
+      <div class="ui header" style="text-align: center;">
+        <div class="image">
+            <%= image_tag @bio.avatar.url, class: "ui image" %>
+        </div>
+      <h1><%= @bio.display_name %>'s Profile</h1>
+      <div style="text-align: center;">
+      <% if @bio.user == current_user %>
+        <button class="ui basic button primary"><%= link_to "Edit Profile", edit_bio_path(@bio) %></button>
+      <% end %>
+      </div>
+      <hr />
+    </div>
+    <h3>Biography</h3>
+    <div class="bio_description">
+      <p><%= @bio.description %></p>
+    </div>
+  <div class="ui unstackable items">
+    <% @bio.user.posts.each do |post| %>
+      <%= render partial: "post", locals: { post: post } %>
+    <% end %>
+  </div>

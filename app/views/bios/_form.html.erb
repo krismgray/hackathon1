@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "application" %>
+<div class="ui container">
+  <h1 class="ui header"><%= @user.id ? 'Edit Post' : 'Create Post' %>
+    <%= form_for @bio do |f| %>
+      <div class="ui form">
+         <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+        <p>Please upload an image approximately 600x600px</p>
+        <br />
+        <%= f.label :display_name %>
+        <%= f.text_field :display_name %>
+        <br />
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+        <br />
+        <%= f.submit nil, class: "ui button primary" %>
+      </div>
+    <% end %>
+  </div>

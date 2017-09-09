@@ -1,7 +1,9 @@
 class BiosController < ApplicationController
+  before_action :set_bio
   # before_action :set_user
 
   def show
+   
   end
 
   def edit
@@ -40,7 +42,7 @@ class BiosController < ApplicationController
   end
 
   def bio_params
-    params.require(:bio).permit(:user_id:)
+    params.require(:bio).permit(:user_id)
 
   end
 end

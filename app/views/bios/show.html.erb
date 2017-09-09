@@ -1,12 +1,17 @@
 <h1>Profile</h1>
-<% @bios.each do |post| %>
-  <div>
-    <%= bio.user.avatar %>
-  </div>
-  <div>
-    <%= bio.user.handle %>
-    <%= bio.user.description %>
-  </div>
-<% end %>
+<hr />
 
+<div>
+    <div>
+      <%= @bio.user.handle %>
+    </div>
+    <div>
+      <%= @bio.description %>
+    </div>
+    <div>
+      <% @bio.posts.each do |post| %>
+        <p><%= post.content %></p>
+      <% end %>
+    </div>
+</div>
 
